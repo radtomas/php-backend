@@ -15,7 +15,6 @@ $num = $stmt->rowCount();
 
 if ($num > 0) {
   $inset_arr = array();
-  $inset_arr["records"] = array();
 
   while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
     extract($row);
@@ -26,7 +25,7 @@ if ($num > 0) {
       "content" => $content
     );
 
-    array_push($inset_arr["records"], $inset_item);
+    array_push($inset_arr, $inset_item);
   }
 
   http_response_code(200);
